@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 742068427}
   - component: {fileID: 742068426}
   - component: {fileID: 742068429}
+  - component: {fileID: 742068430}
   m_Layer: 0
   m_Name: HandTrackingScripts
   m_TagString: Untagged
@@ -545,8 +546,24 @@ MonoBehaviour:
   _bootstrapPrefab: {fileID: 968918444066301895, guid: 1146a9de09159a948b683e94fb3d3c95, type: 3}
   screen: {fileID: 0}
   runningMode: 0
+  gestures: {fileID: 742068430}
   cameraBridge: {fileID: 742068427}
   _handLandmarkerResultAnnotationController: {fileID: 0}
+--- !u!114 &742068430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742068425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56185d6da1036e543b031b673c2b5cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandGestures
+  onPointingUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &885120342
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +575,7 @@ GameObject:
   - component: {fileID: 885120343}
   - component: {fileID: 885120345}
   - component: {fileID: 885120344}
+  - component: {fileID: 885120346}
   m_Layer: 5
   m_Name: CameraPreview
   m_TagString: Untagged
@@ -574,15 +592,15 @@ RectTransform:
   m_GameObject: {fileID: 885120342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.9887, y: 2.9887, z: 2.9887}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1735170793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -403, y: -142.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885120344
 MonoBehaviour:
@@ -607,9 +625,9 @@ MonoBehaviour:
   m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
-    x: 1
+    x: 0
     y: 1
-    width: -1
+    width: 1
     height: -1
 --- !u!222 &885120345
 CanvasRenderer:
@@ -619,6 +637,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885120342}
   m_CullTransparentMesh: 1
+--- !u!114 &885120346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885120342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
+  m_AspectMode: 4
+  m_AspectRatio: 1.77778
 --- !u!1 &940999708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,7 +1480,7 @@ GameObject:
   - component: {fileID: 1735170791}
   - component: {fileID: 1735170790}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PreviewCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,8 +1535,8 @@ Canvas:
   m_GameObject: {fileID: 1735170789}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1339435474}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1515,7 +1547,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_TargetDisplay: 0
 --- !u!224 &1735170793
 RectTransform:

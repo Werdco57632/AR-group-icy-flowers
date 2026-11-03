@@ -13,6 +13,12 @@ namespace Mediapipe.Unity.Sample.HandLandmarkDetection
 {
   public class HandLocator : VisionTaskApiRunner<HandLandmarker>
   {
+	//! MY CODE FOR CONNECTING THIS SCRIPT TO THE GESTURES
+	[SerializeField]
+	private HandGestures gestures;
+
+
+
 	[SerializeField]
 	private VuforiaCameraBridge cameraBridge;
 	
@@ -160,14 +166,13 @@ namespace Mediapipe.Unity.Sample.HandLandmarkDetection
           case Tasks.Vision.Core.RunningMode.VIDEO:
             if (taskApi.TryDetectForVideo(image, GetCurrentTimestampMillisec(), imageProcessingOptions, ref result))
             {
-				if (result.handLandmarks != null && result.handLandmarks.Count > 0)
-				{
-    				Debug.Log("HAND DETECTED!");
-				}
-              _handLandmarkerResultAnnotationController?.DrawNow(result);
+				//! SUCCESSFUL HAND DETECTION
+    			gestures?.ProcessHand(result);
+				_handLandmarkerResultAnnotationController?.DrawNow(result);
             }
             else
             {
+				gestures.ProcessHand(default);
               _handLandmarkerResultAnnotationController?.DrawNow(default);
             }
             break;
