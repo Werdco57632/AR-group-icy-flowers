@@ -1,13 +1,23 @@
 {
   "dependencies": {
-    "com.ptc.vuforia.engine": {
-      "version": "8.5.9",
+    "com.github.homuler.mediapipe": {
+      "version": "file:com.github.homuler.mediapipe",
       "depth": 0,
-      "source": "registry",
+      "source": "embedded",
       "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
+        "com.unity.ugui": "1.0.0",
+        "com.unity.test-framework": "1.0.0"
+      }
+    },
+    "com.ptc.vuforia.engine": {
+      "version": "file:com.ptc.vuforia.engine-11.4.4.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.inputsystem": "1.11.2",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
     },
     "com.unity.ai.navigation": {
       "version": "2.0.14",
@@ -106,6 +116,13 @@
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.6",
       "depth": 3,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.2",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
