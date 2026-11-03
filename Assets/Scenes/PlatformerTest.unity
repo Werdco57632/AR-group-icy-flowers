@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: 742068428}
   - component: {fileID: 742068427}
   - component: {fileID: 742068426}
+  - component: {fileID: 742068429}
   m_Layer: 0
   m_Name: HandTrackingScripts
   m_TagString: Untagged
@@ -526,10 +527,26 @@ Transform:
   m_LocalPosition: {x: 48.68972, y: 0.00001, z: 237.95811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 926013903}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742068429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742068425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b5e662e02fb6a4094174212a94c7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mediapipe.Unity.Sample.HandLandmarkDetection.HandLocator
+  _bootstrapPrefab: {fileID: 968918444066301895, guid: 1146a9de09159a948b683e94fb3d3c95, type: 3}
+  screen: {fileID: 0}
+  runningMode: 0
+  cameraBridge: {fileID: 742068427}
+  _handLandmarkerResultAnnotationController: {fileID: 0}
 --- !u!1 &885120342
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -810.5, y: -391.3}
+  m_AnchoredPosition: {x: -403, y: -142.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885120344
@@ -590,10 +607,10 @@ MonoBehaviour:
   m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 1
+    y: 1
+    width: -1
+    height: -1
 --- !u!222 &885120345
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -602,50 +619,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885120342}
   m_CullTransparentMesh: 1
---- !u!1 &926013902
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 926013903}
-  - component: {fileID: 926013904}
-  m_Layer: 0
-  m_Name: VuforiaCameraBridge
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &926013903
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926013902}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.61306, y: -0.00001, z: -183.57184}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 742068428}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &926013904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926013902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a0233fec2358f41b23e012c0ee3862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VuforiaCameraBridge
 --- !u!1 &940999708
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerPerish
   animator: {fileID: 57889558}
-  cameraFollow: {fileID: 0}
+  cameraFollow: {fileID: 1339435471}
   bounceForce: 8
   respawnDelay: 2
 --- !u!1 &941361695
@@ -962,7 +935,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1 &972634467
+--- !u!1 &1339435470
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -970,24 +943,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 972634471}
-  - component: {fileID: 972634470}
-  - component: {fileID: 972634469}
-  - component: {fileID: 972634468}
+  - component: {fileID: 1339435475}
+  - component: {fileID: 1339435474}
+  - component: {fileID: 1339435473}
+  - component: {fileID: 1339435471}
+  - component: {fileID: 1339435472}
   m_Layer: 0
-  m_Name: MainCamera
-  m_TagString: Untagged
+  m_Name: Main Camera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &972634468
+--- !u!114 &1339435471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972634467}
+  m_GameObject: {fileID: 1339435470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38fa247d00bd26a4f9f474ec23666770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  player: {fileID: 940999713}
+  offset: {x: 0, y: 0, z: -15}
+  smoothSpeed: 5
+--- !u!114 &1339435472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339435470}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
@@ -1025,21 +1014,21 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &972634469
+--- !u!81 &1339435473
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972634467}
+  m_GameObject: {fileID: 1339435470}
   m_Enabled: 1
---- !u!20 &972634470
+--- !u!20 &1339435474
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972634467}
+  m_GameObject: {fileID: 1339435470}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -1067,9 +1056,9 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
+  orthographic: 1
+  orthographic size: 9
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1084,16 +1073,16 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &972634471
+--- !u!4 &1339435475
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972634467}
+  m_GameObject: {fileID: 1339435470}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11851135, y: -0.017876517, z: 0.0021339988, w: 0.9927895}
-  m_LocalPosition: {x: 10.510354, y: 38.35868, z: -165.38513}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1188,7 +1177,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1413281071}
   - component: {fileID: 1413281070}
-  - component: {fileID: 1413281069}
   - component: {fileID: 1413281068}
   - component: {fileID: 1413281067}
   - component: {fileID: 1413281066}
@@ -1269,14 +1257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.VuforiaBehaviour
   mWorldCenterMode: 2
   mWorldCenter: {fileID: 0}
---- !u!81 &1413281069
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413281065}
-  m_Enabled: 1
 --- !u!20 &1413281070
 Camera:
   m_ObjectHideFlags: 0
@@ -1313,7 +1293,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 1
+  m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1561,7 +1541,7 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 972634471}
+  - {fileID: 1339435475}
   - {fileID: 1413281071}
   - {fileID: 941361697}
   - {fileID: 940999713}
