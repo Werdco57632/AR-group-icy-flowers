@@ -14,6 +14,8 @@ public class playerPerish : MonoBehaviour
     private PlayerRespawn playerRespawn;
     private PlayerMovement playerMovement;
     private Collider playerCollider;
+    private PlayerHealth playerHealth;
+
     private bool isDead = false;
 
     void Start()
@@ -22,6 +24,9 @@ public class playerPerish : MonoBehaviour
         playerRespawn = GetComponent<PlayerRespawn>();
         playerMovement = GetComponent<PlayerMovement>();
         playerCollider = GetComponent<Collider>();
+
+        // Connect to health system
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     public void Die()
@@ -34,6 +39,10 @@ public class playerPerish : MonoBehaviour
     private IEnumerator DeathSequence()
     {
         isDead = true;
+
+        // Notify health system
+        if (playerHealth != null)
+            playerHealth.OnPlayerDeath();
 
         // Stop player controls
         playerMovement.enabled = false;
@@ -52,7 +61,10 @@ public class playerPerish : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         // SONIC-STYLE DEATH BOUNCE!
-        rb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+        rb.AddForce(
+            Vector3.up * bounceForce,
+            ForceMode.Impulse
+        );
 
         // Wait while she flies upward and falls
         yield return new WaitForSeconds(respawnDelay);
@@ -73,5 +85,9 @@ public class playerPerish : MonoBehaviour
         cameraFollow.UnfreezeCamera();
 
         isDead = false;
+
+        // Restore health and grant invincibility
+        if (playerHealth != null)
+            playerHealth.OnPlayerRespawn();
     }
 }
