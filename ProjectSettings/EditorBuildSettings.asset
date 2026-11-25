@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1_Village.unity
     guid: dbf86aa1811b82848904540a07303790
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1575a30d49ac9044fb6fce1df28d8644,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a4cf535f672aec24ca3687ae24802885,
       type: 2}
   m_UseUCBPForAssetBundles: 0
