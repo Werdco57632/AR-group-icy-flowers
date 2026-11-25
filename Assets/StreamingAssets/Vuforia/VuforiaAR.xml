@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="alaskanotebook" size="0.515940 0.842967" />
+    <ImageTarget name="coloredpencils" size="0.425450 0.934508" />
+    <ImageTarget name="alchemised" size="0.601133 0.962024" />
+    <ImageTarget name="uno" size="0.488950 0.651933" />
+    <ImageTarget name="goodimagetarget" size="0.508000 0.585788" />
+    <ImageTarget name="badimagetarget" size="0.793750 0.852487" />
+  </Tracking>
+</QCARConfig>

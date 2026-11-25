@@ -1,0 +1,7 @@
+{
+  "name": "IcyFlowers.Shop.EditorTests",
+  "references": ["IcyFlowers.Shop.Progress"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}
